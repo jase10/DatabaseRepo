@@ -11,7 +11,7 @@ namespace DatabaseEF
             using (var db = new NorthwindContext())
             {
                 var orderQuery =
-                from order in db.Orders
+                from order in db.Orders.Include(o => o.Customer)
                 where order.Freight > 750
                 select order;
 
